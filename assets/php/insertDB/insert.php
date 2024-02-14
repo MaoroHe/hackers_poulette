@@ -1,9 +1,7 @@
 <?php
     include("../connexion/connexion.php");
 
-    @$name = $_GET['name'];
-    @$firstname = $_GET['firstname'];
-    @$email = $_GET['email'];
-    @$description = $_GET['description'];
-    @$file = $_GET['file'];
-
+    $prep = $pdo->prepare("SELECT * FROM users WHERE id = 30 LIMIT 1");
+    $prep->execute();
+    $tab = $prep->fetchAll(PDO::FETCH_ASSOC);
+    echo $tab[0]['file'];
