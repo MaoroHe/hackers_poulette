@@ -60,7 +60,22 @@ export let visualVerification = () => {
         }
     })
 
+    const fileInput = document.getElementById('file');
+
     function fileValid() {
-        const fileInput = document.getElementById('file');
+        const fileValue = fileInput.value;
+
+        const allowed = /(\.jpg|\.png|\.gif|\.jpeg)$/i;
+
+        if(!allowed.exec(fileValue)) {
+            fileInput.value = '';
+            alert('file not valid!')
+        } else {
+            alert('ok')
+        }
     }
+
+    fileInput.addEventListener('change', (e) => {
+        fileValid();
+    })
 }
