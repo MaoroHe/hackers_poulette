@@ -36,6 +36,7 @@
                 <th scope="col" class='border border-slate-600'>EMail</th>
                 <th scope="col" class='border border-slate-600'>Description</th>
                 <th scope="col" class='border border-slate-600'>IMG</th>
+                <th scope="col" class='border border-slate-600'>Delete</th>
             </tr>
         </thead>
     <?php
@@ -51,6 +52,7 @@
             <td class='border border-slate-600'> <p class='p-4'>". $user['email'] ."</p> </td>
             <td class='border border-slate-600'> <p class='p-4'>". $user['description'] ."</p> </td>
             <td class='border border-slate-600 flex justify-center'><img src='data:image/jpeg;base64,".base64_encode( $user['file'] )."' style='height:100px; margin-left:auto; margin-right:auto;'/></td>
+            <td class='border border-slate-600'> <button><a  href='assets/php/delete/delete.php?id=".$user['id']."'>Delete</a></button> </td>
             </tr>";
         }
     ?>
