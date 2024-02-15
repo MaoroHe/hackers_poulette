@@ -7,7 +7,8 @@ export let visualVerification = () => {
         const email = document.getElementById('email');
 
         if (!email.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{1,4}$/)) {
-            e.preventDefault();
+            alert('email invalide');
+            email.value = '';
         }
     })
 
@@ -70,8 +71,6 @@ export let visualVerification = () => {
         if(!allowed.exec(fileValue)) {
             fileInput.value = '';
             alert('file not valid!')
-        } else {
-            alert('ok')
         }
     }
 
