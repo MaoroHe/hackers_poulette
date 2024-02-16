@@ -25,11 +25,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type='module' src='main.js'></script>
-    <link rel="stylesheet" href="assets/css/output.css">
-    <title>Hackers Poulette ™</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/output.css">
+
+  <script type='module' src='main.js'></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <title>Hackers Poulette ™</title>
 </head>
 
 <body>
@@ -55,37 +58,31 @@
   <!-- === === FORMULAIRE === === -->
 
   <div class="mx-auto max-w-2xl p-4 my-12">
-  <h2 class="text-3xl font-bold text-center mb-4">Contactez-nous</h2>
-
+    <h2 class="text-3xl font-bold text-center mb-4">Contactez-nous</h2>
   <form method="POST" class="space-y-4" enctype="multipart/form-data">
+      <!-- FIRST NAME -->
+      <div>
+        <label for="first-name" id="first-nameLabel" class="block text-sm font-medium text-gray-700">First name</label>
+        <input type="text" id="first-name" name="first-name" autocomplete="name" required class="mt-1 block w-full ring-1 ring-inset ring-gray-300 bg-gray-100 py-2 px-3.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+      </div>
 
-    <!-- FIRST NAME -->
-    <div>
-      <label for="first-name" id="first-nameLabel" class="block text-sm font-medium text-gray-700">First name</label>
-      <input type="text" id="first-name" name="first-name" autocomplete="name" required
-             class="mt-1 block w-full ring-1 ring-inset ring-gray-300 bg-gray-100 py-2 px-3.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-    </div>
+      <!-- LAST NAME -->
+      <div>
+        <label for="last-name" id="last-nameLabel" class="block text-sm font-medium text-gray-700">Last name</label>
+        <input type="text" id="last-name" name="last-name" autocomplete="name" required class="mt-1 block w-full ring-1 ring-inset ring-gray-300 bg-gray-100 py-2 px-3.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+      </div>
 
-    <!-- LAST NAME -->
-    <div>
-      <label for="last-name" id="last-nameLabel" class="block text-sm font-medium text-gray-700">Last name</label>
-      <input type="text" id="last-name" name="last-name" autocomplete="name" required
-             class="mt-1 block w-full ring-1 ring-inset ring-gray-300 bg-gray-100 py-2 px-3.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-    </div>
+      <!-- EMAIL -->
+      <div style="margin-top: 10px;">
+        <label for="email" id="emaiLabel" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required class="mt-1 block w-full ring-1 ring-inset ring-gray-300 bg-gray-100 py-2 px-3.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+      </div>
 
-    <!-- EMAIL -->
-    <div style="margin-top: 10px;">
-      <label for="email" id="emaiLabel" class="block text-sm font-medium text-gray-700">Email</label>
-      <input type="email" id="email" name="email" autocomplete="email" required
-             class="mt-1 block w-full ring-1 ring-inset ring-gray-300 bg-gray-100 py-2 px-3.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-    </div>
-
-    <!-- MESSAGE -->
-    <div>
-      <label for="message" id="messageLabel" class="block text-sm font-medium text-gray-700">Message</label>
-      <textarea id="message" name="message" rows="4" required
-                class="mt-1 block w-full ring-1 ring-inset ring-gray-300 bg-gray-100 py-2 px-3.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"></textarea>
-    </div>
+      <!-- MESSAGE -->
+      <div>
+        <label for="message" id="messageLabel" class="block text-sm font-medium text-gray-700">Message</label>
+        <textarea id="message" name="message" rows="4" required class="mt-1 block w-full ring-1 ring-inset ring-gray-300 bg-gray-100 py-2 px-3.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"></textarea>
+      </div>
 
     <label for="file" class="block text-sm font-semibold leading-6 text-gray-900">Files</label>
     <div class="mt-2.5">
@@ -98,18 +95,21 @@
       <label for="terms" class="ml-2 block text-sm text-gray-900 ">Je consens à la politique de confidentialité</label>
     </div>
 
-    
-    <!-- SUBMIT -->
-    <div>
-      <button type="submit" id="submit" name="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Envoyer</button>
-    </div>
-
-  </form>
-</div>
+      <!-- CAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="6LcYyHMpAAAAAIdb881CufiJBYnN9GOq3rHCZ9ex"></div>
 
 
+      <!-- SUBMIT -->
+      <div>
+        <button type="submit" id="submit" name="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Envoyer</button>
+      </div>
+
+    </form>
 
 
+  </div>
+
+  <!-- CAPTCHA PHP -->
   <?php
     include("./assets/php/connexion/connexion.php");
     
@@ -136,8 +136,27 @@
             ));
         }} else {
           echo 'Il y a une erreur dans le formulaire';
-        }
+        }}
+  require_once 'autoload.php';
+
+  if (isset($_POST['submit'])) {
+    $recaptcha = new \ReCaptcha\ReCaptcha("6LcYyHMpAAAAACDB0UB6c_qB5-7kGhU8jilcYiJw");
+   
+    $gRecaptchaResponse = $_POST['g-recaptcha-reponse'];
+   
+    $resp = $recaptcha->setExpectedHostname('localhost')
+      ->setExpectedAction('homepage')
+      ->setScoreThreshold(0.5)
+      ->verify($gRecaptchaResponse, $remoteIp);
+
+    if ($resp->isSuccess()) {
+      echo "Succès !";
+
+    } else {
+      $errors = $resp->getErrorCodes();
+      var_dump($errors);
     }
-    ?>
+  }
+?>
 </body>
 </html>
