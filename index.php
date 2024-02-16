@@ -42,7 +42,7 @@
       </div>
       <div>
         <ul class="flex space-x-4">
-        <li><a href="dashboard.php" class="text-white hover:text-gray-300">Panel Admin</a></li>
+        <li><a href="assets/php/admin/connect.php" class="text-white hover:text-gray-300">Panel Admin</a></li>
           <li><a href="index.php" class="text-white hover:text-gray-300">Accueil</a></li>
           <li><a href="index.php" class="text-white hover:text-gray-300">Contact</a></li>
         </ul>
@@ -125,6 +125,7 @@
         }
     
         if (!empty($name) && !empty($firstname) && !empty($email) && !empty($description) && !empty($file)) {
+          if(preg_match("#^[a-z0-9_-]+((\.[a-z0-9_-]+){1,})?@[a-z0-9_-]+((\.[a-z0-9_-]+){1,})?\.[a-z]{2,30}$#i", $email)) {
             $prep = $pdo->prepare('INSERT INTO users (name, firstname, email, file, description) VALUES (?,?,?,?,?)');
             $prep->execute(array(
                 $name,
@@ -133,6 +134,8 @@
                 $file,
                 $description,
             ));
+        }} else {
+          echo 'Il y a une erreur dans le formulaire';
         }
     }
     ?>

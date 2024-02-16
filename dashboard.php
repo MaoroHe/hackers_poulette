@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +22,7 @@
             </div>
             <div>
                 <ul class="flex space-x-4">
-                    <li><a href="dashboard.php" class="text-white hover:text-gray-300">Panel Admin</a></li>
+                    <li><a href="assets/php/admin/connect.php" class="text-white hover:text-gray-300">Panel Admin</a></li>
                     <li><a href="index.php" class="text-white hover:text-gray-300">Accueil</a></li>
                     <li><a href="index.php" class="text-white hover:text-gray-300">Contact</a></li>
                 </ul>
@@ -40,6 +44,8 @@
             </tr>
         </thead>
     <?php
+        if ($_SESSION['user'] == 'admin') {
+
         include("assets/php/connexion/connexion.php");
 
         $users = $pdo->query("SELECT * FROM users")->fetchAll();
@@ -54,9 +60,13 @@
             <td class='border border-slate-600 flex justify-center'><img src='data:image/jpeg;base64,".base64_encode( $user['file'] )."' style='height:100px; margin-left:auto; margin-right:auto;'/></td>
             <td class='border border-slate-600'> <button><a  href='assets/php/delete/delete.php?id=".$user['id']."'>Delete</a></button> </td>
             </tr>";
+        }} else {
+            header("Location: index.php");
         }
     ?>
     </table>
+
+    <button><a  href='assets/php/admin/end.php'>Disconnect</a></button>
     </main>
 </body>
 </html>
