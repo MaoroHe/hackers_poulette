@@ -37,7 +37,7 @@ Install hackers_poulette with npm
 
 ## Tech Stack
 
-**Client:** HTML/CSS, JavaScript, TailwindCSS
+**Client:** HTML, JavaScript, TailwindCSS
 
 **Server:** MySql, PhP
 
